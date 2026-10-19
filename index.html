@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="tracker-app">
+
+    <header class="tracker-header">
+      <h1 class="tracker-header__title">Tracker<span style="color:var(--accent-blue)">.io</span></h1>
+      <div class="tracker-header__user">
+        <div class="tracker-header__user-info">
+          <span class="tracker-header__greeting">Hello, <strong>Ricky Yohanes</strong></span>
+          <span class="tracker-header__date">This Month</span>
+        </div>
+        <div class="tracker-header__avatar" role="img" aria-label="Avatar Pengguna" aria-hidden="true">👤</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="tracker-summary" aria-labelledby="summary-heading">
+        <h2 id="summary-heading" class="visually-hidden">Financial Summary</h2>
+
+        <div class="tracker-summary__balance">
+          <h3 class="tracker-summary__label">Current Balance</h3>
+          <p class="tracker-summary__balance-amount">Rp 0</p>
+        </div>
+
+        <div class="tracker-summary__stat">
+          <h3 class="tracker-summary__label">Income</h3>
+          <p class="tracker-summary__stat-amount tracker-summary__stat-amount--income">Rp 0</p>
+        </div>
+
+        <div class="tracker-summary__stat">
+          <h3 class="tracker-summary__label">Expense</h3>
+          <p class="tracker-summary__stat-amount tracker-summary__stat-amount--expense">Rp 0</p>
+        </div>
+      </section>
+
+      <section class="tracker-form-section" aria-labelledby="form-heading">
+        <div class="tracker-form-section__card">
+          <h2 id="form-heading" class="tracker-form-section__heading">Add New Transaction</h2>
+
+          <form id="transactionForm" data-testid="transactionForm" class="tracker-form">
+            <div class="tracker-form__field">
+              <label class="tracker-form__label" for="transactionFormTitleInput">Description</label>
+              <input type="text" id="transactionFormTitleInput" data-testid="transactionFormTitleInput" class="tracker-form__input" placeholder="e.g., Lunch with colleagues...">
+            </div>
+            <div class="tracker-form__field">
+              <label class="tracker-form__label" for="transactionFormAmountInput">Amount (IDR)</label>
+              <input type="number" id="transactionFormAmountInput" data-testid="transactionFormAmountInput" class="tracker-form__input" placeholder="50000">
+            </div>
+            <div class="tracker-form__field">
+              <label class="tracker-form__label" for="transactionFormDateInput">Date</label>
+              <input type="date" id="transactionFormDateInput" data-testid="transactionFormDateInput" class="tracker-form__input">
+            </div>
+            <div class="tracker-form__field">
+              <label class="tracker-form__label" for="transactionFormTypeSelect">Classification</label>
+              <select id="transactionFormTypeSelect" data-testid="transactionFormTypeSelect" class="tracker-form__input">
+                <option value="income">Income (+)</option>
+                <option value="expense">Expense (-)</option>
+              </select>
+            </div>
+            <button type="submit" data-testid="transactionFormSubmitButton" class="tracker-form__submit">Save</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="tracker-history" aria-labelledby="history-heading">
+        <h2 id="history-heading" class="visually-hidden">Transaction History</h2>
+
+        <div class="tracker-search">
+          <form id="searchTransactionForm" data-testid="searchTransactionForm" class="tracker-search__form" role="search">
+            <input type="search" id="searchTransactionFormTitleInput" data-testid="searchTransactionFormTitleInput" class="tracker-form__input" placeholder="Search transactions by title..." aria-label="Search transaction keyword">
+            <button type="submit" data-testid="searchTransactionFormSubmitButton" class="tracker-search__submit" aria-label="Start Search">Search</button>
+          </form>
+        </div>
+
+        <div class="tracker-history__grid">
+          <div class="tracker-transaction-list">
+            <div class="tracker-transaction-list__header">
+              <h3 class="tracker-transaction-list__title">Income Transactions</h3>
+            </div>
+            <div id="incomeList" data-testid="incomeList" class="tracker-transaction-list__container">
+            </div>
+          </div>
+
+          <div class="tracker-transaction-list">
+            <div class="tracker-transaction-list__header">
+              <h3 class="tracker-transaction-list__title">Expense Transactions</h3>
+            </div>
+            <div id="expenseList" data-testid="expenseList" class="tracker-transaction-list__container">
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="tracker-footer">
+      <p>&#169; 2026 Tracker.io. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
